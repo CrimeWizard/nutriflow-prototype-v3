@@ -1,34 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
 
 :root {
-  --green-600: #1a9d63;
-  --green-500: #22b573;
-  --green-400: #34c988;
-  --green-100: #e8f7ef;
-  --green-50: #f4fbf7;
-  --slate-900: #0f1720;
-  --slate-800: #1a222d;
-  --slate-700: #2d3a47;
-  --slate-500: #64748b;
-  --slate-400: #94a3b8;
-  --slate-200: #e2e8f0;
-  --slate-100: #f1f5f9;
-  --slate-50: #f8fafc;
-  --white: #ffffff;
-  --orange: #ea8a1a;
-  --orange-soft: #fef6eb;
-  --blue: #2563eb;
-  --blue-soft: #eff6ff;
+  /* Ink — type & structure */
+  --ink: #14181c;
+  --ink-secondary: #4a5560;
+  --ink-muted: #7a8490;
+
+  /* Warm neutrals — no green tint */
+  --surface: #ffffff;
+  --surface-warm: #f7f6f3;
+  --surface-muted: #efede8;
+  --border: #e5e2dc;
+  --border-strong: #d4d0c8;
+
+  /* Brand accent — deep sage, used sparingly */
+  --brand: #2f4f46;
+  --brand-muted: #4a6b62;
+  --brand-subtle: #e8edeb;
+
+  /* Primary actions — charcoal, not neon */
+  --action: #1c2127;
+  --action-hover: #2a3139;
+
+  /* Legacy aliases (maps old tokens → new system) */
+  --slate-900: var(--ink);
+  --slate-800: var(--ink);
+  --slate-700: var(--ink-secondary);
+  --slate-600: var(--ink-secondary);
+  --slate-500: var(--ink-muted);
+  --slate-400: #9aa3ad;
+  --slate-200: var(--border);
+  --slate-100: var(--surface-muted);
+  --slate-50: var(--surface-warm);
+  --white: var(--surface);
+  --green-600: var(--action-hover);
+  --green-500: var(--brand);
+  --green-400: var(--brand-muted);
+  --green-100: var(--brand-subtle);
+  --green-50: var(--brand-subtle);
+
+  --orange: #b45309;
+  --orange-soft: #faf5ef;
+  --blue: #3b5998;
+  --blue-soft: #f0f3f8;
   --radius-xl: 20px;
   --radius-lg: 16px;
   --radius-md: 12px;
   --radius-sm: 8px;
-  --shadow-xs: 0 1px 2px rgba(15, 23, 32, 0.04);
-  --shadow-sm: 0 2px 8px rgba(15, 23, 32, 0.06);
-  --shadow-md: 0 8px 24px rgba(15, 23, 32, 0.08);
-  --shadow-green: 0 8px 20px rgba(34, 181, 115, 0.28);
+  --shadow-xs: 0 1px 2px rgba(20, 24, 28, 0.04);
+  --shadow-sm: 0 2px 8px rgba(20, 24, 28, 0.06);
+  --shadow-md: 0 8px 24px rgba(20, 24, 28, 0.08);
+  --shadow-btn: 0 2px 6px rgba(20, 24, 28, 0.14);
   font-family: 'DM Sans', system-ui, sans-serif;
-  color: var(--slate-800);
+  color: var(--ink);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -40,7 +64,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   padding: 12px;
-  background: linear-gradient(165deg, #dfe8f0 0%, #eef2f6 40%, #e8f0ea 100%);
+  background: #e8e6e1;
 }
 
 #root { width: 100%; max-width: 400px; }
@@ -63,8 +87,8 @@ input, select, textarea {
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 input:focus, select:focus, textarea:focus {
-  border-color: var(--green-500);
-  box-shadow: 0 0 0 3px rgba(34, 181, 115, 0.12);
+  border-color: var(--brand-muted);
+  box-shadow: 0 0 0 3px rgba(47, 79, 70, 0.1);
 }
 input::placeholder, textarea::placeholder { color: var(--slate-400); }
 
@@ -107,12 +131,12 @@ label.field-label {
 .btn-primary {
   width: 100%;
   padding: 16px 20px;
-  background: var(--green-500);
+  background: var(--action);
   color: var(--white);
   font-size: 15px;
-  box-shadow: var(--shadow-green);
+  box-shadow: var(--shadow-btn);
 }
-.btn-primary:hover:not(:disabled) { background: var(--green-600); }
+.btn-primary:hover:not(:disabled) { background: var(--action-hover); }
 
 .btn-secondary {
   width: 100%;
@@ -166,7 +190,7 @@ label.field-label {
   font-weight: 700;
   letter-spacing: -0.4px;
 }
-.logo span { color: var(--green-500); }
+.logo span { color: var(--brand); }
 .badge {
   font-size: 9px;
   font-weight: 700;
@@ -226,7 +250,7 @@ label.field-label {
   border-radius: var(--radius-md);
   position: relative;
 }
-.nav-btn.active { color: var(--green-500); }
+.nav-btn.active { color: var(--ink); }
 .nav-btn svg { width: 22px; height: 22px; }
 .nav-count {
   position: absolute;
@@ -235,7 +259,7 @@ label.field-label {
   min-width: 16px;
   height: 16px;
   padding: 0 4px;
-  background: var(--green-500);
+  background: var(--action);
   color: white;
   font-size: 9px;
   font-weight: 700;
@@ -275,8 +299,8 @@ label.field-label {
   background: var(--slate-200);
   transition: width 0.25s, background 0.25s;
 }
-.step-dot.done { background: var(--green-400); }
-.step-dot.active { background: var(--green-500); width: 24px; }
+.step-dot.done { background: var(--border-strong); }
+.step-dot.active { background: var(--ink); width: 24px; }
 .step-dot:not(.active):not(.done) { width: 8px; }
 .step-dot.done:not(.active) { width: 8px; }
 
@@ -289,12 +313,12 @@ label.field-label {
   height: 72px;
   margin: 0 auto 20px;
   border-radius: 20px;
-  background: linear-gradient(135deg, var(--green-500), var(--green-600));
+  background: var(--action);
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  box-shadow: var(--shadow-green);
+  box-shadow: var(--shadow-btn);
 }
 .welcome-hero h1 {
   font-size: 26px;
@@ -345,10 +369,9 @@ label.field-label {
   transition: all 0.15s;
 }
 .day-chip.selected {
-  background: var(--green-500);
-  border-color: var(--green-500);
+  background: var(--action);
+  border-color: var(--action);
   color: white;
-  box-shadow: var(--shadow-green);
 }
 
 .time-row {
@@ -366,9 +389,9 @@ label.field-label {
   background: var(--white);
 }
 .time-chip.selected {
-  border-color: var(--green-500);
-  background: var(--green-50);
-  color: var(--green-600);
+  border-color: var(--ink);
+  background: var(--surface-warm);
+  color: var(--ink);
 }
 
 .goal-list { display: flex; flex-direction: column; gap: 10px; }
@@ -384,9 +407,9 @@ label.field-label {
   background: var(--white);
 }
 .goal-card.selected {
-  border-color: var(--green-500);
-  background: var(--green-50);
-  box-shadow: 0 0 0 1px var(--green-500);
+  border-color: var(--ink);
+  background: var(--surface-warm);
+  box-shadow: none;
 }
 .goal-card-icon {
   width: 44px;
@@ -399,7 +422,7 @@ label.field-label {
   font-size: 20px;
   flex-shrink: 0;
 }
-.goal-card.selected .goal-card-icon { background: var(--green-100); }
+.goal-card.selected .goal-card-icon { background: var(--brand-subtle); color: var(--brand); }
 .goal-card h3 { font-size: 15px; font-weight: 700; }
 .goal-card p { font-size: 13px; color: var(--slate-500); margin-top: 2px; }
 .goal-check {
@@ -414,8 +437,8 @@ label.field-label {
   flex-shrink: 0;
 }
 .goal-card.selected .goal-check {
-  background: var(--green-500);
-  border-color: var(--green-500);
+  background: var(--action);
+  border-color: var(--action);
   color: white;
 }
 
@@ -435,43 +458,55 @@ label.field-label {
   color: var(--slate-600);
 }
 .area-chip.selected {
-  border-color: var(--green-500);
-  background: var(--green-50);
-  color: var(--green-600);
+  border-color: var(--ink);
+  background: var(--surface-warm);
+  color: var(--ink);
 }
 
 /* Home */
 .hero-card {
-  background: linear-gradient(135deg, var(--green-500) 0%, var(--green-600) 100%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--brand);
   border-radius: var(--radius-lg);
-  padding: 20px;
-  color: white;
+  padding: 18px 20px;
   margin-bottom: 24px;
-  box-shadow: var(--shadow-green);
+  box-shadow: var(--shadow-xs);
+}
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--brand-muted);
+  margin-bottom: 6px;
 }
 .hero-card h2 {
   font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.3px;
+  color: var(--ink);
 }
 .hero-card p {
-  font-size: 13px;
-  opacity: 0.9;
+  font-size: 14px;
+  color: var(--ink-secondary);
   margin-top: 6px;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 .hero-card .hero-meta {
   display: flex;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-top: 14px;
-  font-size: 12px;
-  font-weight: 600;
-  opacity: 0.95;
 }
 .hero-card .hero-meta span {
-  background: rgba(255,255,255,0.18);
-  padding: 4px 10px;
-  border-radius: 20px;
+  background: var(--surface-muted);
+  color: var(--ink-secondary);
+  padding: 5px 11px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--border);
 }
 
 .meal-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
@@ -485,7 +520,7 @@ label.field-label {
   width: 100%;
   transition: border-color 0.15s;
 }
-.meal-item:active { border-color: var(--green-400); }
+.meal-item:active { border-color: var(--border-strong); }
 .meal-item-inner {
   display: flex;
   gap: 14px;
@@ -504,7 +539,7 @@ label.field-label {
   color: var(--slate-500);
 }
 .meal-icon-wrap.pre { background: var(--orange-soft); color: var(--orange); }
-.meal-icon-wrap.post { background: var(--green-100); color: var(--green-600); }
+.meal-icon-wrap.post { background: var(--brand-subtle); color: var(--brand); }
 .meal-meta {
   font-size: 11px;
   font-weight: 700;
@@ -527,7 +562,7 @@ label.field-label {
   border-top: 1px solid var(--slate-200);
   font-size: 13px;
   font-weight: 600;
-  color: var(--green-600);
+  color: var(--brand);
 }
 
 .cta-hint {
@@ -552,7 +587,7 @@ label.field-label {
   align-items: center;
   justify-content: center;
   font-size: 48px;
-  background: linear-gradient(160deg, var(--slate-50), var(--green-50));
+  background: linear-gradient(160deg, var(--surface-warm), var(--surface-muted));
 }
 .recipe-content { padding: 16px; }
 .recipe-content h3 {
@@ -599,8 +634,8 @@ label.field-label {
 .ingredients-hint {
   margin: 14px 20px;
   padding: 12px 14px;
-  background: var(--green-50);
-  border: 1px solid rgba(34, 181, 115, 0.15);
+  background: var(--surface-warm);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   font-size: 13px;
   color: var(--green-600);
@@ -646,9 +681,9 @@ label.field-label {
   transition: all 0.15s;
 }
 .product-card.selected {
-  border-color: var(--green-500);
-  background: var(--green-50);
-  box-shadow: 0 0 0 1px var(--green-500);
+  border-color: var(--ink);
+  background: var(--surface-warm);
+  box-shadow: none;
 }
 .product-check {
   position: absolute;
@@ -657,7 +692,7 @@ label.field-label {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--green-500);
+  background: var(--action);
   color: white;
   display: flex;
   align-items: center;
@@ -686,7 +721,7 @@ label.field-label {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.3px;
-  color: var(--green-600);
+  color: var(--brand);
 }
 .product-name {
   font-size: 13px;
@@ -762,7 +797,7 @@ label.field-label {
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: var(--green-500);
+  background: var(--action);
   color: white;
   display: flex;
   align-items: center;
@@ -876,9 +911,9 @@ label.field-label {
   align-items: center;
   gap: 12px;
   padding: 14px 16px;
-  border: 1.5px solid var(--green-500);
+  border: 1.5px solid var(--border);
   border-radius: var(--radius-md);
-  background: var(--green-50);
+  background: var(--surface-warm);
   margin-bottom: 20px;
 }
 .payment-badge strong { font-size: 14px; display: block; }
@@ -898,13 +933,13 @@ label.field-label {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: var(--green-500);
+  background: var(--action);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 24px;
-  box-shadow: var(--shadow-green);
+  box-shadow: var(--shadow-btn);
   animation: pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 @keyframes pop {

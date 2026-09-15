@@ -33,7 +33,7 @@ export function Checkout() {
       </div>
 
       <div className="payment-badge">
-        <Banknote size={24} color="var(--green-600)" />
+        <Banknote size={24} color="var(--brand)" />
         <div>
           <strong>Pay on delivery</strong>
           <span>Cash to the driver when your order arrives</span>

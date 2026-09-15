@@ -22,6 +22,7 @@ export function Home() {
       </div>
 
       <div className="hero-card">
+        <div className="hero-eyebrow">Today</div>
         <h2>Your meals are ready</h2>
         <p>
           {gymToday
