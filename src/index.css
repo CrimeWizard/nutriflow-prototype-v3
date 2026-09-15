@@ -13,16 +13,24 @@
   --border: #e5e2dc;
   --border-strong: #d4d0c8;
 
-  /* Brand accent — deep sage, used sparingly */
-  --brand: #2f4f46;
-  --brand-muted: #4a6b62;
-  --brand-subtle: #e8edeb;
+  /*
+   * Brand green — mid-tone forest.
+   * Not neon (#22b573) and not charcoal.
+   * No glow shadows, no gradients — flat color only.
+   */
+  --green: #2f7a5b;
+  --green-hover: #286b50;
+  --green-light: #3d916f;
+  --green-subtle: #eef5f1;
+  --green-border: #d4e5dd;
 
-  /* Primary actions — charcoal, not neon */
-  --action: #1c2127;
-  --action-hover: #2a3139;
+  --brand: var(--green);
+  --brand-muted: var(--green-light);
+  --brand-subtle: var(--green-subtle);
+  --action: var(--green);
+  --action-hover: var(--green-hover);
 
-  /* Legacy aliases (maps old tokens → new system) */
+  /* Legacy aliases */
   --slate-900: var(--ink);
   --slate-800: var(--ink);
   --slate-700: var(--ink-secondary);
@@ -33,11 +41,11 @@
   --slate-100: var(--surface-muted);
   --slate-50: var(--surface-warm);
   --white: var(--surface);
-  --green-600: var(--action-hover);
-  --green-500: var(--brand);
-  --green-400: var(--brand-muted);
-  --green-100: var(--brand-subtle);
-  --green-50: var(--brand-subtle);
+  --green-600: var(--green-hover);
+  --green-500: var(--green);
+  --green-400: var(--green-light);
+  --green-100: var(--green-subtle);
+  --green-50: var(--green-subtle);
 
   --orange: #b45309;
   --orange-soft: #faf5ef;
@@ -87,8 +95,8 @@ input, select, textarea {
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 input:focus, select:focus, textarea:focus {
-  border-color: var(--brand-muted);
-  box-shadow: 0 0 0 3px rgba(47, 79, 70, 0.1);
+  border-color: var(--green-light);
+  box-shadow: 0 0 0 3px rgba(47, 122, 91, 0.12);
 }
 input::placeholder, textarea::placeholder { color: var(--slate-400); }
 
@@ -250,7 +258,7 @@ label.field-label {
   border-radius: var(--radius-md);
   position: relative;
 }
-.nav-btn.active { color: var(--ink); }
+.nav-btn.active { color: var(--green); }
 .nav-btn svg { width: 22px; height: 22px; }
 .nav-count {
   position: absolute;
@@ -299,8 +307,8 @@ label.field-label {
   background: var(--slate-200);
   transition: width 0.25s, background 0.25s;
 }
-.step-dot.done { background: var(--border-strong); }
-.step-dot.active { background: var(--ink); width: 24px; }
+.step-dot.done { background: var(--green-border); }
+.step-dot.active { background: var(--green); width: 24px; }
 .step-dot:not(.active):not(.done) { width: 8px; }
 .step-dot.done:not(.active) { width: 8px; }
 
@@ -389,9 +397,9 @@ label.field-label {
   background: var(--white);
 }
 .time-chip.selected {
-  border-color: var(--ink);
-  background: var(--surface-warm);
-  color: var(--ink);
+  border-color: var(--green);
+  background: var(--green-subtle);
+  color: var(--green-hover);
 }
 
 .goal-list { display: flex; flex-direction: column; gap: 10px; }
@@ -407,8 +415,8 @@ label.field-label {
   background: var(--white);
 }
 .goal-card.selected {
-  border-color: var(--ink);
-  background: var(--surface-warm);
+  border-color: var(--green);
+  background: var(--green-subtle);
   box-shadow: none;
 }
 .goal-card-icon {
@@ -458,27 +466,25 @@ label.field-label {
   color: var(--slate-600);
 }
 .area-chip.selected {
-  border-color: var(--ink);
-  background: var(--surface-warm);
-  color: var(--ink);
+  border-color: var(--green);
+  background: var(--green-subtle);
+  color: var(--green-hover);
 }
 
 /* Home */
 .hero-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--brand);
+  background: var(--green-subtle);
+  border: 1px solid var(--green-border);
   border-radius: var(--radius-lg);
   padding: 18px 20px;
   margin-bottom: 24px;
-  box-shadow: var(--shadow-xs);
 }
 .hero-eyebrow {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.6px;
-  color: var(--brand-muted);
+  color: var(--green);
   margin-bottom: 6px;
 }
 .hero-card h2 {
@@ -500,13 +506,13 @@ label.field-label {
   margin-top: 14px;
 }
 .hero-card .hero-meta span {
-  background: var(--surface-muted);
+  background: var(--surface);
   color: var(--ink-secondary);
   padding: 5px 11px;
   border-radius: 6px;
   font-size: 12px;
   font-weight: 600;
-  border: 1px solid var(--border);
+  border: 1px solid var(--green-border);
 }
 
 .meal-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
@@ -634,11 +640,11 @@ label.field-label {
 .ingredients-hint {
   margin: 14px 20px;
   padding: 12px 14px;
-  background: var(--surface-warm);
-  border: 1px solid var(--border);
+  background: var(--green-subtle);
+  border: 1px solid var(--green-border);
   border-radius: var(--radius-md);
   font-size: 13px;
-  color: var(--green-600);
+  color: var(--green-hover);
   flex-shrink: 0;
 }
 .ingredients-scroll {
@@ -681,8 +687,8 @@ label.field-label {
   transition: all 0.15s;
 }
 .product-card.selected {
-  border-color: var(--ink);
-  background: var(--surface-warm);
+  border-color: var(--green);
+  background: var(--green-subtle);
   box-shadow: none;
 }
 .product-check {
