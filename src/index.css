@@ -18,11 +18,11 @@
    * Not neon (#22b573) and not charcoal.
    * No glow shadows, no gradients — flat color only.
    */
-  --green: #2f7a5b;
-  --green-hover: #286b50;
-  --green-light: #3d916f;
-  --green-subtle: #eef5f1;
-  --green-border: #d4e5dd;
+  --green: #3a9472;
+  --green-hover: #328564;
+  --green-light: #4aa882;
+  --green-subtle: #f1f7f4;
+  --green-border: #d8ebe2;
 
   --brand: var(--green);
   --brand-muted: var(--green-light);
@@ -96,7 +96,7 @@ input, select, textarea {
 }
 input:focus, select:focus, textarea:focus {
   border-color: var(--green-light);
-  box-shadow: 0 0 0 3px rgba(47, 122, 91, 0.12);
+  box-shadow: 0 0 0 3px rgba(58, 148, 114, 0.12);
 }
 input::placeholder, textarea::placeholder { color: var(--slate-400); }
 
